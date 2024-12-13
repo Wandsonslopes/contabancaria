@@ -2,38 +2,46 @@ package conta;
 
 import java.util.Scanner;
 import conta.model.Conta;
+import conta.model.ContaCorrente;
+import conta.model.ContaPoupanca;
 import conta.util.Cores;
 
 public class Menu {
+	
+	public static Scanner leia = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		
-		// Instaciamento | Classe -> Objeto Utilizavel
-		Conta c1 = new Conta(123456, 0001, 1, "Maria das Neves", 500f);
-		
-		c1.visualizar();
-		c1.sacar(12000.0f);
-		c1.visualizar();
-		c1.depositar(5000.0f);
-		c1.visualizar();		
-		
-		//c1.setSaldo(5000f);
-		
-		//System.out.println("Titular: " + c1.getTitular());
-		//System.out.println("Saldo: " + c1.getSaldo());
 		
 		// Comportamentos/Métodos
 
 		// Métodos de Acesso
 
-		Scanner leia = new Scanner(System.in);
+		// Scanner leia = new Scanner(System.in);
 
 		int opcao;
 
+		// Instanciamento da Classe ContaCorrente com limite fixo
+
+		// Teste da Classe Conta Corrente
+		ContaCorrente cc1 = new ContaCorrente(1, 123, 1, "Francisco", 0.0f, 1000.0f);
+		cc1.visualizar();
+		cc1.sacar(12000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
+
+		// Teste da Classe Conta Poupança
+		ContaPoupanca cp1 = new ContaPoupanca(2, 123, 2, "João", 100000.0f, 15);
+		cp1.visualizar();
+		cp1.sacar(1000.0f);
+		cp1.visualizar();
+		cp1.depositar(5000.0f);
+		cp1.visualizar();
+
 		while (true) {
 
-			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND 
-					         + "**********************************************");
+			System.out.println(
+					Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND + "**********************************************");
 			System.out.println("                                              ");
 			System.out.println("               BANCO GENERATION               ");
 			System.out.println("                                              ");
